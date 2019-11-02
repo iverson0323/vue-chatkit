@@ -2,6 +2,7 @@
   <div class="login-form">
     <h5 class="text-center">Chat Login</h5>
     <hr />
+    <!-- 当组件内有button按钮时，只有一个点击时会触发submit事件，阻止默认事件触发，可以防止刷新 -->
     <b-form @submit.prevent="onSubmit">
       <b-alert variant="danger" :show="hasError">{{ error }}</b-alert>
 
@@ -42,6 +43,8 @@ export default {
     };
   },
   computed: {
+    // 绑定的是disabled的状态，考虑当事件执行时的禁止操作状态
+    // input、button
     isValid: function() {
       const result = this.userId.length < 3;
       return result ? result : this.loading;
@@ -51,8 +54,10 @@ export default {
   },
   methods: {
     ...mapActions(["login"]),
+
     async onSubmit() {
       const result = await this.login(this.userId);
+
       if (result) {
         this.$router.push("chat");
       }

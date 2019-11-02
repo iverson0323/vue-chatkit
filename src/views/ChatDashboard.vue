@@ -1,6 +1,7 @@
 <template>
   <div class="chat-dashboard">
     <ChatNavBar />
+    <!-- loading效果的应用，时刻记着，以及button的disabled状态 -->
     <b-container fluid class="ld-over" v-bind:class="{ running: loading }">
       <div class="ld ld-ring ld-spin"></div>
       <b-row>
@@ -14,6 +15,7 @@
               <MessageList />
             </b-col>
           </b-row>
+
           <b-row>
             <b-col>
               <MessageForm />

@@ -1,4 +1,5 @@
 export default {
+  // 使用set的方式，设置用户的各种属性
   setError(state, error) {
     state.error = error;
   },
@@ -8,6 +9,7 @@ export default {
   setUser(state, user) {
     state.user = user;
   },
+  // 是否重新连接
   setReconnect(state, reconnect) {
     state.reconnect = reconnect;
   },
@@ -20,6 +22,7 @@ export default {
   setUsers(state, users) {
     state.users = users;
   },
+  // 统一操作的mutation
   clearChatRoom(state) {
     state.users = [];
     state.messages = [];
@@ -37,6 +40,7 @@ export default {
     state.userTyping = userId;
   },
   reset(state) {
+    // 清除值的时候，注意清除的顺序
     state.error = null;
     state.users = [];
     state.messages = [];

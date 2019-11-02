@@ -6,12 +6,15 @@ import actions from "./actions";
 
 Vue.use(Vuex);
 
+// 开启vuex debug模式，非生产环境
 const debug = process.env.NODE_ENV !== "production";
 
+// 初始化VuexPersistence，作为vuex插件的使用
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage
 });
 
+// 初始化vuex store
 export default new Vuex.Store({
   state: {
     loading: false,
@@ -30,6 +33,8 @@ export default new Vuex.Store({
   },
   mutations,
   actions,
+  // vuexLocal.plugin作为plugin使用
   plugins: [vuexLocal.plugin],
+  // debug开启
   strict: debug
 });

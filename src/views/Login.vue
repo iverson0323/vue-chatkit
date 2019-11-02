@@ -9,6 +9,7 @@
       <p>For more information visit website</p>
       <b-btn target="_blank" href="https://pusher.com/chatkit">More Info</b-btn>
     </b-jumbotron>
+
     <b-container>
       <b-row>
         <b-col lg="4" md="3"></b-col>
@@ -25,6 +26,7 @@
 import LoginForm from "@/components/LoginForm.vue";
 
 export default {
+  // 每个组件会声明name属性
   name: "login",
   components: {
     LoginForm

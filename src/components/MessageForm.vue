@@ -57,6 +57,7 @@ export default {
     },
 
     async isTyping() {
+      // 当用户一直在键入的时候，这边就一直在触发，当用户停止后，此时也会断开
       await isTyping(this.activeRoom.id);
     }
   }

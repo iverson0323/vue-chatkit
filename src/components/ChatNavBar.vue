@@ -27,6 +27,7 @@ export default {
 
     unload() {
       if (this.user.username) {
+        // 设置下一次需要重新连接的标志
         this.setReconnect(true);
       }
     }
@@ -37,6 +38,7 @@ export default {
     window.addEventListener("beforeunload", this.unload);
 
     if (this.reconnect) {
+      // 进行重新登录，如果是因为页面刷新的原因
       this.login(this.user.username);
     }
   }
